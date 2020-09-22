@@ -2,19 +2,21 @@ include sources.mk
 
 # Compiler Definations
 CC = gcc
+CFLAGS = -Wall -g
+
 BASENAME = main
 TARGET = $(BASENAME).out
 
 OBJS = $(SRCS:.c=.o)
 %.o : %.c
-	$(CC) -Wall -o $@ -c $<
+	$(CC) $(CFLAGS) $@ -c $<
 
 
 .PHONY : all
 all : $(TARGET)
 
 $(TARGET) : $(OBJS)
-	$(CC) -Wall -o $@ $(OBJS)
+	$(CC) $(CFLAGS) $@ $(OBJS)
 
 .PHONY : clean
 clean:
