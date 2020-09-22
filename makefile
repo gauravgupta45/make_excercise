@@ -9,14 +9,14 @@ TARGET = $(BASENAME).out
 
 OBJS = $(SRCS:.c=.o)
 %.o : %.c
-	$(CC) $(CFLAGS) $@ -c $<
+	$(CC) $(CFLAGS) -o $@ -c $<
 
 
 .PHONY : all
 all : $(TARGET)
 
 $(TARGET) : $(OBJS)
-	$(CC) $(CFLAGS) $@ $(OBJS)
+	$(CC) $(CFLAGS) -o $@ $(OBJS)
 
 .PHONY : clean
 clean:
